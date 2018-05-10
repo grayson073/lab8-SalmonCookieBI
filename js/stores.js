@@ -1,0 +1,1 @@
+console.log("stores.js is loading properly");
