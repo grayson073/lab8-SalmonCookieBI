@@ -11,8 +11,7 @@ arrStores[2] = new Stores('Powell\'s', 11, 38, 3.7);
 arrStores[3] = new Stores('St. John\'s', 20, 38, 2.3);
 arrStores[4] = new Stores('Waterfront', 2, 16, 4.6);
 
-
-var arrFooters = [null, null, 'Total:', '$' + costTotal, '$' + priceTotal, inventoryTotal];
+var footerRow = ['TEST', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST'];
 
 
 function createHeader() {
@@ -35,8 +34,8 @@ function salesData() {
     var tbody = document.createElement('tbody');
     table.appendChild(tbody);
 
-    for(var i = 0; i < headerRow.length; i++) {
-       // headerRow[i].cookiesToSell();
+    for(var i = 0; i < arrStores.length; i++) {
+        arrStores[i].cookiesToSell();
     }
 }
 
@@ -48,10 +47,10 @@ function createFooter() {
     var row = tfoot.insertRow(0);
     var cell = [];
 
-    for(var i = 0; i < headerRow.length; i++) {
+    for(var i = 0; i < footerRow.length; i++) {
         cell[i];
         cell[i] = row.insertCell(i);
-        cell[i].textContent = headerRow[i];
+        cell[i].textContent = footerRow[i];
     }
 }
 

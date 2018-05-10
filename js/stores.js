@@ -2,6 +2,7 @@
 /* exported Stores */
 
 class Stores {
+
     constructor(location, min, max, avg) {
         this.location = location;
         this.min = min;
