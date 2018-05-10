@@ -1,17 +1,3 @@
 'use strict';
 
-class Stores {
-
-    constructor(location, min, max, avg) {
-        this.location = location;
-        this.min = min;
-        this.max = max;
-        this.avg = avg;
-
-        this.random = function() {
-            var i = Math.floor(Math.random() * (max - min * 1)) + min;
-            return i * this.avg;
-        };
-    }
-
-}
+var headerRow = ['Locations','6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm','5pm', '6pm'];
