@@ -2,7 +2,7 @@
 /* globals Stores */
 /* exported createHeader */
 
-var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
+var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'TOTAL'];
 
 var arrStores = new Array();
 arrStores[0] = new Stores('PDX Airport', 23, 65, 6.3);
@@ -11,7 +11,7 @@ arrStores[2] = new Stores('Powell\'s', 11, 38, 3.7);
 arrStores[3] = new Stores('St. John\'s', 20, 38, 2.3);
 arrStores[4] = new Stores('Waterfront', 2, 16, 4.6);
 
-var footerRow = ['TEST', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
+var footerRow = ['TOTAL', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
 
 
 function createHeader() {

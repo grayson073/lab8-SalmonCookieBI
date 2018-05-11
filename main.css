@@ -1,0 +1,56 @@
+html, body {
+    height: 80%;
+}
+body {
+    margin: 0;
+}
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row {
+    width: auto;
+}
+  
+h1 {
+    font-family: 'Henny Penny', cursive;
+    font-size: 64px;
+    text-align: center;
+    -webkit-margin-after: 0px;
+}
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+thead td, tfoot td {
+    background: #fff;
+    font-weight: 400;
+    padding: 0px 16px 0px 16px;
+}
+
+tr:nth-child(odd) {
+    background: #CCC;
+    }
+
+tr:nth-child(even) {
+    background: rgb(201, 245, 172);
+
+}
+
+td {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+}
