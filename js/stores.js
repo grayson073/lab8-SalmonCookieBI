@@ -10,10 +10,11 @@ class Stores {
         this.avg = avg;
 
         this.random = function() {
-            var j = Math.floor(Math.random() * (this.max - this.min * 1)) + this.min;
+            var j = Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
             return Math.ceil(j * this.avg);
         };
     }
+
     // Locates tbody, declares cell[], creates one row, loops creation of cell data when called in app.js
     cookiesToSell() {
         var tbody = document.getElementsByTagName('tbody')[0];
@@ -27,8 +28,6 @@ class Stores {
         for(var j = 0; j < 15; j++) {
             cell[j].textContent = this.random();
             cell[0].textContent = this.location;
-            cell[14].textContent = 'TEST';
         }
-        return tbody;
     }
 }
