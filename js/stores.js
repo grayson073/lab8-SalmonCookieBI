@@ -10,7 +10,7 @@ class Stores {
         this.avg = avg;
 
         this.random = function() {
-            var j = Math.floor(Math.random() * (this.max - this.min * 1)) + this.min;
+            var j = Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
             return Math.ceil(j * this.avg);
         };
     }
