@@ -11,6 +11,8 @@ arrStores[2] = new Stores('Powell\'s', 11, 38, 3.7);
 arrStores[3] = new Stores('St. John\'s', 20, 38, 2.3);
 arrStores[4] = new Stores('Waterfront', 2, 16, 4.6);
 
+var footerRow = ['TOTAL', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
+
 
 function createHeader() {
     var table = document.getElementsByTagName('table')[0];
@@ -38,7 +40,7 @@ function salesData() {
     }
 }
 
-var footerRow = ['TOTAL', sumCol1, sumCol2, sumCol3, '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
+
 
 function createFooter() {
     var table = document.getElementsByTagName('table')[0];
@@ -55,9 +57,7 @@ function createFooter() {
 }
 
 
-createHeader();
-salesData();
-createFooter();
+
 
 
 
@@ -65,7 +65,7 @@ createFooter();
 
 var checkOnClick = document.getElementById('sum-table');
 checkOnClick.addEventListener('click', function(){
-    sumRow();
+    //sumRow();
     sumCol();
 });
 
@@ -99,25 +99,7 @@ function sumRow() {
     //};
 }
 
-
-
-
-var sumCol1 = '';
-var sumCol2 = 0;
-var sumCol3 = 0;
-var sumCol4 = 0;
-var sumCol5 = 0;
-var sumCol6 = 0;
-var sumCol7 = 0;
-var sumCol8 = 0;
-var sumCol9 = 0;
-var sumCol10 = 0;
-var sumCol11 = 0;
-var sumCol12 = 0;
-var sumCol13 = 0;
-var sumCol14 = 0;
-var sumCol15 = 0;
-
+var arrSumCol = new Array();
 
 // locates table via querySelector, loads table.onclick (using to test)
 // function locates table and then tr tags
@@ -127,16 +109,35 @@ var sumCol15 = 0;
 function sumCol() {
     var rows =
         document.getElementById('sum-table').getElementsByTagName('tr');
+    var sumCol1 = '';
+    var sumCol2 = 0;
+    var sumCol3 = 0;
+    var sumCol4 = 0;
+    var sumCol5 = 0;
+    var sumCol6 = 0;
+    var sumCol7 = 0;
+    var sumCol8 = 0;
+    var sumCol9 = 0;
+    var sumCol10 = 0;
+    var sumCol11 = 0;
+    var sumCol12 = 0;
+    var sumCol13 = 0;
+    var sumCol14 = 0;
+    var sumCol15 = 0;
     
     // includes the first column for visual context (string of locations)
     // omit the last row, which is to be used for totals later
     for(var i = 1; i < (rows.length - 1); i++) {
         sumCol1 += (rows[i].childNodes[0].firstChild.data + ', ');
     }
+    arrSumCol.push(sumCol1);
+    console.log('This is the array ' + sumCol1);
 
     for(i = 1; i < (rows.length - 1); i++) {
         sumCol2 += parseFloat(rows[i].childNodes[1].firstChild.data);
     }
+    arrSumCol.push(sumCol2);
+    console.log('This is the array ' + sumCol2);
 
     for(i = 1; i < (rows.length - 1); i++) {
         sumCol3 += parseFloat(rows[i].childNodes[2].firstChild.data);
@@ -208,3 +209,8 @@ function sumCol() {
     console.log('Sums from 15th column: ' + sumCol15);
 }
 
+footerRow = ['TOTAL', arrSumCol[1], 'Test2', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
+
+createHeader();
+salesData();
+createFooter();
