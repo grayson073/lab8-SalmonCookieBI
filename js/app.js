@@ -2,7 +2,7 @@
 /* globals Stores */
 /* exported createHeader */
 
-var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
 
 var arrStores = new Array();
 arrStores[0] = new Stores('PDX Airport', 23, 65, 6.3);
@@ -11,7 +11,7 @@ arrStores[2] = new Stores('Powell\'s', 11, 38, 3.7);
 arrStores[3] = new Stores('St. John\'s', 20, 38, 2.3);
 arrStores[4] = new Stores('Waterfront', 2, 16, 4.6);
 
-var footerRow = ['TEST', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST'];
+var footerRow = ['TEST', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
 
 
 function createHeader() {
@@ -23,11 +23,12 @@ function createHeader() {
     var cell = [];
     
     for(var i = 0; i < headerRow.length; i++) {
-        cell[i];
         cell[i] = row.insertCell(i);
         cell[i].textContent = headerRow[i];
     }
 }
+
+
 
 function salesData() {
     var table = document.getElementsByTagName('table')[0];
@@ -39,6 +40,8 @@ function salesData() {
     }
 }
 
+
+
 function createFooter() {
     var table = document.getElementsByTagName('table')[0];
     var tfoot = document.createElement('tfoot');
@@ -48,11 +51,11 @@ function createFooter() {
     var cell = [];
 
     for(var i = 0; i < footerRow.length; i++) {
-        cell[i];
         cell[i] = row.insertCell(i);
         cell[i].textContent = footerRow[i];
     }
 }
+
 
 createHeader();
 salesData();
