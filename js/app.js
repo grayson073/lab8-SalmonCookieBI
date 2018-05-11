@@ -23,11 +23,12 @@ function createHeader() {
     var cell = [];
     
     for(var i = 0; i < headerRow.length; i++) {
-        cell[i];
         cell[i] = row.insertCell(i);
         cell[i].textContent = headerRow[i];
     }
 }
+
+
 
 function salesData() {
     var table = document.getElementsByTagName('table')[0];
@@ -39,6 +40,8 @@ function salesData() {
     }
 }
 
+
+
 function createFooter() {
     var table = document.getElementsByTagName('table')[0];
     var tfoot = document.createElement('tfoot');
@@ -48,7 +51,6 @@ function createFooter() {
     var cell = [];
 
     for(var i = 0; i < footerRow.length; i++) {
-        cell[i];
         cell[i] = row.insertCell(i);
         cell[i].textContent = footerRow[i];
     }
