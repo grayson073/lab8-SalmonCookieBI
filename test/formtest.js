@@ -1,4 +1,6 @@
 'use strict';
+/* globals Stores arrStores createHeader salesData createFooter addLocation */
+/* exported addLocation */
 
 function addLocation(event) {
 
@@ -24,12 +26,12 @@ function addLocation(event) {
 
 
 
-var createForm = document.getElementById('form');
+/* var createForm = document.getElementById('form');
 createForm.addEventListener('submit', function() {
     event.preventDefault();
-    var tbody = document.getElementById('sum-table');
+    var tbody = document.getElementById('cookies');
     tbody.textContent = '';
     createHeader();
     salesData();
     createFooter();
-});
+}); */
