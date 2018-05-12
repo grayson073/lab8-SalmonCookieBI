@@ -1,5 +1,6 @@
 'use strict';
-/* exported Stores */
+/* globals */
+/* exported Stores arrStores */
 
 
 class Store {
@@ -22,3 +23,5 @@ let store2 = new Store('Pioneer Square', 3, 24, 1.2);
 let store3 = new Store('Powell\'s', 11, 38, 3.7);
 let store4 = new Store('St. John\'s', 20, 38, 2.3);
 let store5 = new Store('Waterfront', 2, 16, 4.6);
+
+var arrStores = [store1, store2, store3, store4, store5];

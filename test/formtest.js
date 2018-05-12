@@ -1,5 +1,5 @@
 'use strict';
-/* globals Stores arrStores createHeader salesData createFooter addLocation */
+/* globals Stores arrStores createHeader salesData createFooter */
 /* exported addLocation */
 
 function addLocation(event) {
@@ -20,18 +20,17 @@ function addLocation(event) {
 
     var newStore = new Stores(formLocation, formMin, formMax, formAvg);
     arrStores.push(newStore);
-    newStore.cookiesToSell();
+    console.log(arrStores);
 
 }
 
 
-
-/* var createForm = document.getElementById('form');
+var createForm = document.getElementById('form');
 createForm.addEventListener('submit', function() {
     event.preventDefault();
-    var tbody = document.getElementById('cookies');
-    tbody.textContent = '';
-    createHeader();
-    salesData();
-    createFooter();
-}); */
+    var cell = document.getElementsByTagName('td');
+    cell.textContent = '';
+    salesData(event);
+    addLocation(event);
+
+});
