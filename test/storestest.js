@@ -25,12 +25,3 @@ let store4 = new Store('St. John\'s', 20, 38, 2.3);
 let store5 = new Store('Waterfront', 2, 16, 4.6);
 
 var arrStores = [store1, store2, store3, store4, store5];
-
-function cookieLocation(city) {
-    for(var i = 0; i < arrStores.length; i++) {
-        city = arrStores[i].location;
-        console.log(city);
-    }
-}
-
-cookieLocation();

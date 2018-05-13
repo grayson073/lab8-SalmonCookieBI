@@ -36,7 +36,6 @@ function salesData() {
             var cellText = document.createTextNode(arrStores[i].random());
             cell.appendChild(cellText);
             row.appendChild(cell);
-
         }
         tblBody.appendChild(row);
     }
@@ -60,48 +59,20 @@ function createFooter() {
 }
 
 
-/* function cookiesToSell() {
-    var tbody = document.getElementsByTagName('tbody')[0];
-    var row = tbody.insertRow(0);
-
-    for(var i = 0; i < headerRow; i++) {
-        cell[i] = row.insertCell(i);
-    }
-
-    for(var j = 0; j < 15; j++) {
-        cell[j].textContent = this.random();
-        cell[0].textContent = this.location;
-    }
-} */
-
-/* function salesData() {
-    var table = document.getElementsByTagName('table')[0];
-    var tbody = document.createElement('tbody');
-    table.appendChild(tbody);
-
+function keepLocationColumn() {
     for(var i = 0; i < arrStores.length; i++) {
-        arrStores[i].cookiesToSell();
+        var locate = document.getElementById('cookie-table').rows[i + 1].cells[0];
+        console.log(locate);
+        locate.innerHTML = arrStores[i].location;
     }
 }
-
-
-
-function createFooter() {
-    var table = document.getElementsByTagName('table')[0];
-    var tfoot = document.createElement('tfoot');
-    table.appendChild(tfoot);
-
-    var row = tfoot.insertRow(0);
-    var cell = [];
-
-    for(var i = 0; i < headerRow.length; i++) {
-        cell[i] = row.insertCell(i);
-        cell[i].textContent = headerRow[i];
-    }
-}
- */
-
 
 createHeader();
 salesData();
 createFooter();
+keepLocationColumn();
+
+
+
+/* var TEST = document.getElementById('cookie-table').rows[1].cells[1];
+console.log(TEST); */
