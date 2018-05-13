@@ -1,5 +1,5 @@
 'use strict';
-/* globals Stores arrStores salesData */
+/* globals Store arrStores salesData */
 /* exported addLocation */
 
 function addLocation(event) {
@@ -18,7 +18,7 @@ function addLocation(event) {
     var formAvg = event.target.avg.value;
     console.log('formAvg', event);
 
-    var newStore = new Stores(formLocation, formMin, formMax, formAvg);
+    var newStore = new Store(formLocation, formMin, formMax, formAvg);
     arrStores.push(newStore);
     console.log(arrStores);
 
