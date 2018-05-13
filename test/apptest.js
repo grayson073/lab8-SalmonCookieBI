@@ -1,9 +1,11 @@
 'use strict';
-/* globals */
+/* globals arrStores */
 
 
-var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'TOTAL'];
-var footerRow = ['TOTAL', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', 'TEST', 'test'];
+var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
+var footerRow = ['', 'T6am', 'T7am', 'T8am', 'T9am', 'T10am', 'T11am', 'T12pm', 'T1pm', 'T2pm', 'T3pm', 'T4pm', 'T5pm', 'T6pm', 'Total'];
+var container = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
 
 function createHeader() {
     var tbl = document.getElementById('cookie-table');
@@ -14,7 +16,7 @@ function createHeader() {
         
         for(var j = 0; j < headerRow.length; j++) {
             var cell = document.createElement('th');
-            var cellText = document.createTextNode('Head' + (i + 1) + 'Col' + (j + 1));
+            var cellText = document.createTextNode(headerRow[j]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
@@ -27,12 +29,12 @@ function salesData() {
     var tbl = document.getElementById('cookie-table');
     var tblBody = document.createElement('tbody');
     
-    for(var i = 0; i < 1; i++) {
+    for(var i = 0; i < arrStores.length; i++) {
         var row = document.createElement('tr');
         
         for(var j = 0; j < headerRow.length; j++) {
             var cell = document.createElement('td');
-            var cellText = document.createTextNode('Body' + (i + 1) + 'Col' + (j + 1));
+            var cellText = document.createTextNode(container[j]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
@@ -40,6 +42,8 @@ function salesData() {
     }
     tbl.appendChild(tblBody);
 }
+
+
 
 function createFooter() {
     var tbl = document.getElementById('cookie-table');
@@ -50,7 +54,7 @@ function createFooter() {
         
         for(var j = 0; j < headerRow.length; j++) {
             var cell = document.createElement('td');
-            var cellText = document.createTextNode('Foot' + (i + 1) + 'Col' + (j + 1));
+            var cellText = document.createTextNode(footerRow[j]);
             cell.appendChild(cellText);
             row.appendChild(cell);
         }
