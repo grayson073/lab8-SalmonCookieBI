@@ -1,10 +1,11 @@
 'use strict';
 /* globals arrStores */
+/* exported getColumnTotals */
 
 
 var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
 var footerRow = ['', 'T6am', 'T7am', 'T8am', 'T9am', 'T10am', 'T11am', 'T12pm', 'T1pm', 'T2pm', 'T3pm', 'T4pm', 'T5pm', 'T6pm', 'Total'];
-
+var sumCol = [];
 
 function createHeader() {
     var tbl = document.getElementById('cookie-table');
@@ -62,16 +63,38 @@ function createFooter() {
 function keepLocationColumn() {
     for(var i = 0; i < arrStores.length; i++) {
         var locate = document.getElementById('cookie-table').rows[i + 1].cells[0];
-        console.log(locate);
         locate.innerHTML = arrStores[i].location;
     }
+}
+
+
+function getColumnTotals() {
+    var rows = document.getElementById('cookie-table').getElementsByTagName('tr');
+    var sum = 0;
+
+    var accounts = [];
+    for(var a = 0; a < rows.length - 2; a++) {
+        accounts[a];
+        console.log(accounts);
+    }
+
+/*     for(var b = 0; b < headerRow.length - 2; b++) {
+
+    } */
+
+    for(var i = 0; i < (rows.length - 2); i++) {
+        sum += parseFloat(rows[i + 1].cells[1].firstChild.data);
+        console.log('sum: ' + sum);
+    }
+    sumCol.push(sum);
+    console.log('sumCol array: ' + sumCol);
 }
 
 createHeader();
 salesData();
 createFooter();
 keepLocationColumn();
-
+getColumnTotals();
 
 
 /* var TEST = document.getElementById('cookie-table').rows[1].cells[1];
