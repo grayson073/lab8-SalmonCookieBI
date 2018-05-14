@@ -1,4 +1,6 @@
 'use strict';
+/* exported addLocation arrStores */
+/* globals arrStores Stores createHeader salesData createFooter*/
 
 function addLocation(event) {
 
