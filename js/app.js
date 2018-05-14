@@ -61,21 +61,19 @@ function createFooter() {
     tbl.appendChild(tblFoot);
 }
 
-
+// Function only works if cells[i] is hard-coded to column number (e.g. 1)
 function getColumnTotals() {
     var rows = document.getElementById('cookie-table').getElementsByTagName('tr');
-    var cookiesPerStore = new Array();
-    var result = [];
+    var cookiesPerStore = [];
 
     for(var i = 0; i < rows.length - 2; i++) {
-        result[i] = (parseFloat(rows[i + 1].cells[i].firstChild.data));
-        console.log('inner loop runs: ' + i);
-        cookiesPerStore[i] = result[i];
+        cookiesPerStore[i] = (parseFloat(rows[i + 1].cells[1].firstChild.data));
+        console.log('getColumnTotals "i" value: ' + i);
     }
     cookiesPerHour.push(cookiesPerStore);
-    console.log('column values are: ' + result);
-        
-    console.log(cookiesPerHour);
+    console.log(cookiesPerStore);
+    
+    console.table(cookiesPerHour);
 
 }
 
@@ -94,7 +92,7 @@ function sumColumnTotals() {
             function(total, num){ return total + num; }
             , 0);
         
-        console.log(sum);
+        console.log('Sum of column: ' + sum);
         sumCookiesPerHour.push(sum);
     }
 }
