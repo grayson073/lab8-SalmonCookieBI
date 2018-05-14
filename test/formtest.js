@@ -1,5 +1,5 @@
 'use strict';
-/* globals Store arrStores salesData keepLocationColumn */
+/* globals Store arrStores salesData keepLocationColumn createHeader createFooter sumColumnTotals updateFooterTotals */
 /* exported addLocation */
 
 function addLocation(event) {
@@ -21,11 +21,18 @@ function addLocation(event) {
 var createForm = document.getElementById('form');
 createForm.addEventListener('submit', function() {
     event.preventDefault();
-    var wholeTable = document.getElementById('cookie-table').getElementsByTagName('tbody td');
-    wholeTable.textContent = '';
-    console.log(wholeTable);
-    salesData();
-    addLocation(event);
-    keepLocationColumn(event);
 
+    (function() {
+        var tbody = document.getElementById('cookie-table');
+        while(tbody.rows.length > 0) {
+            tbody.deleteRow(0);
+        }
+    })();
+    createHeader(event);
+    salesData(event);
+    createFooter(event);
+    addLocation(event);
+    keepLocationColumn();
+    sumColumnTotals();
+    updateFooterTotals();
 });

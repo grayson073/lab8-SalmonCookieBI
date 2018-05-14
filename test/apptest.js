@@ -3,7 +3,7 @@
 /* exported getColumnTotals updateFooterTotals */
 
 var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
-var footerRow = ['', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
+var footerRow = ['Locations', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12', 'T13', 'T14', 'T15', '12', '13', '14', '15'];
 var cookiesPerHour = [];
 var sumCookiesPerHour = [];
 
@@ -68,13 +68,12 @@ function getColumnTotals() {
     var result = [];
 
     for(var i = 0; i < rows.length - 2; i++) {
-        result[i] = (parseFloat(rows[i + 1].cells[1].firstChild.data));
+        result[i] = (parseFloat(rows[i + 1].cells[i].firstChild.data));
         console.log('inner loop runs: ' + i);
         cookiesPerStore[i] = result[i];
     }
     cookiesPerHour.push(cookiesPerStore);
     console.log('column values are: ' + result);
-    //cookiesPerHour.push(cookiesPerStore);
         
     console.log(cookiesPerHour);
 
@@ -101,12 +100,12 @@ function sumColumnTotals() {
 }
 
 // "I" IS SET TO 1. NEEDS TO BE headerRows.length ONCE ARRAY TOTALING FIXED
+// updateCells = rows[i] won't take "i"; only takes hard-coded number
 function updateFooterTotals() {
-    var locate = document.getElementById('cookie-table');
+    var rows = document.getElementById('cookie-table').getElementsByTagName('tr');
     for(var i = 0; i < 1; i++) {
-        var updateCells = locate.rows[6].cells[i + 1];
+        var updateCells = rows[6].cells[i + 1];
         updateCells.innerHTML = sumCookiesPerHour[i];
-        console.log(updateCells);
     }
 }
 
