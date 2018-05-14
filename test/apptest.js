@@ -1,11 +1,12 @@
 'use strict';
 /* globals arrStores */
-/* exported getColumnTotals */
-
+/* exported getColumnTotals updateFooterTotals */
 
 var headerRow = ['Locations', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', 'Total'];
-var footerRow = ['', 'T6am', 'T7am', 'T8am', 'T9am', 'T10am', 'T11am', 'T12pm', 'T1pm', 'T2pm', 'T3pm', 'T4pm', 'T5pm', 'T6pm', 'Total'];
-var sumCol = [];
+var footerRow = ['', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
+var cookiesPerHour = [];
+var sumCookiesPerHour = [];
+
 
 function createHeader() {
     var tbl = document.getElementById('cookie-table');
@@ -21,6 +22,7 @@ function createHeader() {
     tblHead.appendChild(row);
     tbl.appendChild(tblHead);
 }
+
 
 // First loop creates rows based on index of class Store
 // Second, nested loop creates rows based on headerRow.length
@@ -60,6 +62,25 @@ function createFooter() {
 }
 
 
+function getColumnTotals() {
+    var rows = document.getElementById('cookie-table').getElementsByTagName('tr');
+    var cookiesPerStore = new Array();
+    var result = [];
+
+    for(var i = 0; i < rows.length - 2; i++) {
+        result[i] = (parseFloat(rows[i + 1].cells[1].firstChild.data));
+        console.log('inner loop runs: ' + i);
+        cookiesPerStore[i] = result[i];
+    }
+    cookiesPerHour.push(cookiesPerStore);
+    console.log('column values are: ' + result);
+    //cookiesPerHour.push(cookiesPerStore);
+        
+    console.log(cookiesPerHour);
+
+}
+
+
 function keepLocationColumn() {
     for(var i = 0; i < arrStores.length; i++) {
         var locate = document.getElementById('cookie-table').rows[i + 1].cells[0];
@@ -68,34 +89,32 @@ function keepLocationColumn() {
 }
 
 
-function getColumnTotals() {
-    var rows = document.getElementById('cookie-table').getElementsByTagName('tr');
-    var sum = 0;
-
-    var accounts = [];
-    for(var a = 0; a < rows.length - 2; a++) {
-        accounts[a];
-        console.log(accounts);
+function sumColumnTotals() {
+    for(var i = 0; i < cookiesPerHour.length; i++) {
+        var sum = cookiesPerHour[i].reduce(
+            function(total, num){ return total + num; }
+            , 0);
+        
+        console.log(sum);
+        sumCookiesPerHour.push(sum);
     }
-
-/*     for(var b = 0; b < headerRow.length - 2; b++) {
-
-    } */
-
-    for(var i = 0; i < (rows.length - 2); i++) {
-        sum += parseFloat(rows[i + 1].cells[1].firstChild.data);
-        console.log('sum: ' + sum);
-    }
-    sumCol.push(sum);
-    console.log('sumCol array: ' + sumCol);
 }
+
+// "I" IS SET TO 1. NEEDS TO BE headerRows.length ONCE ARRAY TOTALING FIXED
+function updateFooterTotals() {
+    var locate = document.getElementById('cookie-table');
+    for(var i = 0; i < 1; i++) {
+        var updateCells = locate.rows[6].cells[i + 1];
+        updateCells.innerHTML = sumCookiesPerHour[i];
+        console.log(updateCells);
+    }
+}
+
 
 createHeader();
 salesData();
 createFooter();
-keepLocationColumn();
 getColumnTotals();
-
-
-/* var TEST = document.getElementById('cookie-table').rows[1].cells[1];
-console.log(TEST); */
+keepLocationColumn();
+sumColumnTotals();
+updateFooterTotals();
